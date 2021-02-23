@@ -3,4 +3,6 @@ Rails.application.routes.draw do
   root 'pages#home'
   get 'about', to: 'pages#about'
   resources :trainees
+  get 'signup', to: 'pages#signup'
+  #get 'signup', to: 'trainees#new'
 end

@@ -18,6 +18,7 @@ class TraineesController < ApplicationController
 
   def create
     @trainee =Trainee.new(params.require(:trainee).permit(:firstname, :lastname, :username, :city, :country, :phone, :bio, :preference, :email, :github, :linkedin, :twitter ))
+    @trainee.area = Area.first
     if @trainee.save
       flash[:notice] = "You have successfully registered"
       redirect_to @trainee

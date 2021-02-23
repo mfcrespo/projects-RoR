@@ -10,7 +10,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_02_21_154232) do
+ActiveRecord::Schema.define(version: 2021_02_23_150832) do
+
+  create_table "areas", force: :cascade do |t|
+    t.string "area"
+    t.string "leader"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "socials", force: :cascade do |t|
+    t.string "socialmedia"
+    t.string "link"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "trainees", force: :cascade do |t|
     t.string "firstname"
@@ -27,6 +41,8 @@ ActiveRecord::Schema.define(version: 2021_02_21_154232) do
     t.string "twitter"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "area_id"
+    t.string "password_digest"
   end
 
 end
