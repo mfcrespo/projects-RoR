@@ -22,5 +22,5 @@ class Trainee < ApplicationRecord
                       email: true, uniqueness: { case_sensitive: true }, 
                       length: {maximum:100}
 
-  has_secure_password                    
+  #has_secure_password                    
 end

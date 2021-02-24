@@ -1,0 +1,47 @@
+@import 'bootstrap/dist/css/bootstrap';
+
+.navbar {
+	background-color: #c2c4c5 !important;
+	}
+
+.navbar-brand {
+	font-size: 1rem;
+	}
+
+h1 {
+    color: rgb(0, 0, 0);
+  }
+
+#home-container {
+  margin-top: 25px;
+}
+
+.jumbotron {
+  background-image: asset-url('koombea.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-blend-mode: darken;
+  height: 425px;
+}
+
+#btn-koombea {
+  background-color: #0BD8A2;
+  border-color: #0BD8A2;
+  }
+
+/* Sticky Footer Classes */
+
+html,
+body {
+  height: 100%;
+}
+
+#page-content {
+  flex: 1 0 auto;
+  background-color: lightgray;
+}
+
+#sticky-footer {
+  flex-shrink: none;
+}  
