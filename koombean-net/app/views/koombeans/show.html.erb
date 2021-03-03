@@ -1,7 +1,7 @@
 <h1>Are you Koombean</h1>
 
 
-<figure><%= link_to image_tag(@koombean.avatar.variant(resize_to_fill: [400, 400])), @koombean.avatar if @koombean.avatar.attached? %></figure>
+<figure><%= link_to image_tag(profile_avatar)  %></figure>
 
 
 <p><strong>Name: </strong><%= @koombean.firstname %></p>

@@ -23,7 +23,7 @@
   <tbody>
     <% @koombeans.each do |koombean| %>
       <tr>
-        <td><%= link_to image_tag(koombean.avatar.variant(resize_to_fill: [100, 100])), koombean.avatar if koombean.avatar.attached? %></td>
+        <td><%= link_to image_tag(thumb_avatar(koombean, 100)), koombean.avatar if koombean.avatar.attached?  %></td>
         <td><%= koombean.firstname %></td>
         <td><%= koombean.lastname %></td>
         <td><%= koombean.city %></td>
