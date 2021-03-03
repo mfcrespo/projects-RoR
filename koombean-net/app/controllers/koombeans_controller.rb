@@ -58,6 +58,6 @@ class KoombeansController < ApplicationController
 		end
 	      
 	      def koombean_params
-		params.require(:koombean).permit(:firstname, :lastname, :city, :country, :phone, :bio, :area, :email, networks_attributes: Network.attribute_names.map(&:to_sym).push(:_destroy))
+		params.require(:koombean).permit(:firstname, :lastname, :city, :country, :phone, :bio, :area, :email, :avatar, networks_attributes: Network.attribute_names.map(&:to_sym).push(:_destroy))
 	      end
 end
