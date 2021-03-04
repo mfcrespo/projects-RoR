@@ -19,7 +19,6 @@ module ApplicationHelper
     if @koombean.avatar.attached?
       @koombean.avatar.variant(resize: "400x400!")
     end
-  end  
-
+  end 
 
 end

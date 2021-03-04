@@ -28,18 +28,18 @@ class KoombeansController < ApplicationController
 		end
 	      end
 	    
-	      def update
+	def update
 		@koombean = Koombean.find(params[:id])
 		if @koombean.update(koombean_params)
-		    flash[:success] = "Koombean was successfully updated"
-		    redirect_to @koombean
+		    
+		    redirect_to @koombean, notice: "Koombean was successfully updated"
 		  else
 		    flash[:error] = "Something went wrong"
 		    render 'edit'
 		  end
-	      end
+	end
 	    
-	      def destroy
+	  def destroy
 		@koombean = Koombean.find(params[:id])
 		if @koombean.destroy
 		  flash[:success] = 'Object was successfully deleted.'

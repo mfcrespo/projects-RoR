@@ -4,8 +4,7 @@ class Koombean < ApplicationRecord
   accepts_nested_attributes_for :networks, reject_if: :reject_network, allow_destroy: true
   before_save :sanitize_text
   validate :acceptable_avatar
-
-  
+    
   def reject_network(attr)
     attr['socialname'].blank? || attr['link'].blank?
   end
@@ -30,6 +29,8 @@ class Koombean < ApplicationRecord
       errors.add(:avatar, "must be a JPG, JPEG or PNG")
     end
   end
+
+ 
 
 	validates :firstname, presence: true
 	validates :lastname, presence: true
