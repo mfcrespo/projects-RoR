@@ -2,22 +2,22 @@ class KoombeansController < ApplicationController
 	  
 	def show
 		@koombean = Koombean.find(params[:id])
-	      end
+	end
 	    
-	      def index
+	def index
 		@koombeans = Koombean.all
-	      end
+	end
 	    
-	      def new
+	def new
 		@koombean = Koombean.new
 		@koombean.networks.build
-	      end
+	end
 	    
-	      def edit
+	def edit
 		@koombean = Koombean.find(params[:id])
-	      end
+	end
 	    
-	      def create
+	def create
 		@koombean = Koombean.new(koombean_params)
 		if @koombean.save
 		  flash[:success] = "Koombean successfully created"
@@ -26,20 +26,19 @@ class KoombeansController < ApplicationController
 		  flash[:error] = "Something went wrong"
 		  render 'new'
 		end
-	      end
+	end
 	    
 	def update
 		@koombean = Koombean.find(params[:id])
 		if @koombean.update(koombean_params)
-		    
-		    redirect_to @koombean, notice: "Koombean was successfully updated"
-		  else
-		    flash[:error] = "Something went wrong"
-		    render 'edit'
-		  end
+		  redirect_to @koombean, notice: "Koombean was successfully updated"
+		else
+		  flash[:error] = "Something went wrong"
+		  render 'edit'
+		end
 	end
 	    
-	  def destroy
+	def destroy
 		@koombean = Koombean.find(params[:id])
 		if @koombean.destroy
 		  flash[:success] = 'Object was successfully deleted.'
@@ -48,16 +47,16 @@ class KoombeansController < ApplicationController
 		  flash[:error] = 'Something went wrong'
 		  redirect_to koombeans_url
 		end
-	      end
+	end
 	      
 	    
-		    private
-		# Use callbacks to share common setup or constraints between actions.
-		def set_koombean
-		  @koombean = Koombean.find(params[:id])
-		end
+	private
+	# Use callbacks to share common setup or constraints between actions.
+	def set_koombean
+	  @koombean = Koombean.find(params[:id])
+	end
 	      
-	      def koombean_params
+	def koombean_params
 		params.require(:koombean).permit(:firstname, :lastname, :city, :country, :phone, :bio, :area, :email, :avatar, networks_attributes: Network.attribute_names.map(&:to_sym).push(:_destroy))
-	      end
+	end
 end
