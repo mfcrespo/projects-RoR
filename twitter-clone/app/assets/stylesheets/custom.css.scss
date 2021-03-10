@@ -42,11 +42,25 @@
 }
 
 .btn2 {
-  background-color: white; /* Twitter blue */
+  background-color: white;
   border-radius: 25px;
   color: #1199fa;
-  border: 2px solid #1199fa; /* Green */
+  border: 2px solid #1199fa;
   padding: 10px 160px;
+  margin-bottom: 20px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 14px;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.btn3 {
+  background-color: #1199fa; /* Twitter blue */
+  border: 2px solid #1199fa;
+  border-radius: 25px;
+  color: white;
+  padding: 10px 50px;
   margin-bottom: 20px;
   text-align: center;
   text-decoration: none;
