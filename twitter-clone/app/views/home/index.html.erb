@@ -1,5 +1,5 @@
 <% if user_signed_in? %>
-  <%= render 'layouts/navigation' %>
+  <%= controller.redirect_to tweets_path %>
 <% else %>
-  <%= render 'cover' %>
+  <%= render 'home/cover' %>
 <% end %>
