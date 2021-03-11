@@ -1,15 +1,17 @@
 class TweetsController < ApplicationController
+before_action :authenticate_user!, except: [:index]
 
 	def show
 		@tweet = Tweet.find(params[:id])
 	end
 	    
 	def index
-		@tweets = Tweet.all
+		@tweets = Tweet.all.order("created_at DESC")
+		@tweet = Tweet.new
 	end
 	    
 	def new
-		@tweet = Tweet.new
+		@tweet = current_user.tweets.build
 	end
 	    
 	def edit
@@ -17,7 +19,7 @@ class TweetsController < ApplicationController
 	end
 	    
 	def create
-		@tweet = Tweet.new(tweet_params)
+		@tweet = current_user.tweets.build(tweet_params)
 		if @tweet.save
 		  flash[:success] = "Tweet successfully created"
 		  redirect_to @tweet
