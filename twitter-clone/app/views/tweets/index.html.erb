@@ -3,8 +3,14 @@
     <div class="col">
       <%= render 'layouts/navigation' %>
     </div>
-    <div class="col-8">
-      <%= render 'feed' %>
+    <div class="col">
+      <% if user_signed_in? %>
+        <%= render 'profile' %>
+        <%= render 'feed' %>
+      <% else %>
+        <%= render 'feed' %>
+    
+      <% end %>      
     </div>
     <div class="col">
       <%= render 'who-to-follow' %>
