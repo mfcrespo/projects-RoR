@@ -1,0 +1,6 @@
+<p><strong>Tweet </strong><%= @tweet.tweet %></p>
+
+<p>
+  <%= link_to 'Delete', tweet_path(@tweet), method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to 'Back to List', tweets_path %>
+</p>

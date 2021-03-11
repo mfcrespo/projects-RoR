@@ -22,7 +22,7 @@ before_action :authenticate_user!, except: [:index]
 		@tweet = current_user.tweets.build(tweet_params)
 		if @tweet.save
 		  flash[:success] = "Tweet successfully created"
-		  redirect_to @tweet
+		  redirect_to tweets_path(@tweet)
 		else
 		  flash[:error] = "Something went wrong"
 		  render 'new'
