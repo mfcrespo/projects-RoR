@@ -1,91 +1,86 @@
-<div class="row">
-  <nav id="sidebarMenu" class="col-md-5 col-lg-2 d-md-block bg-light sidebar collapse">
-    <div class="sidebar-sticky pt-3">
-      <ul class="nav flex-column">
-        <li class="nav-item">
-          <a class="nav-link active" href="#">
-            <i class="fab fa-twitter fa-2x bird" ></i>
+<nav id="sidebarMenu" class="col-md-5 col-lg-2 d-md-block bg-light sidebar collapse">
+  <div class="sidebar-sticky pt-3">
+    <ul class="nav flex-column">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">
+          <i class="fab fa-twitter fa-2x bird" ></i>
+        </a>
+      </li>        
+      <li class="nav-item">
+        <a class="nav-link active" href="/tweets">
+          <i class="fas fa-house-user"></i>
+          Home <span class="sr-only">(current)</span>
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-hashtag"></i>
+          Explore
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="far fa-bell fa-1x"></i>
+          Notifications
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="far fa-envelope"></i>
+          Messages
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="far fa-bookmark"></i>
+          Saved
+        </a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="far fa-list-alt"></i>
+          Lists
+        </a>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
+          <a class="nav-link" href="/tweets">
+            <i class="fas fa-user"></i>
+            Profile
           </a>
-        </li>        
-        <li class="nav-item">
-          <a class="nav-link active" href="/tweets">
-            <i class="fas fa-house-user"></i>
-            Home <span class="sr-only">(current)</span>
-          </a>
-        </li>
-        <li class="nav-item">
+        <% else %>
+          <%= link_to 'Sign In', new_user_session_path, class: "btn3" %>
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">
+          <i class="fas fa-ellipsis-h"></i>
+          More Options
+        </a>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
           <a class="nav-link" href="#">
-            <i class="fas fa-hashtag"></i>
-            Explore
+            <%= link_to 'Tweet', new_tweet_path, class: 'btn3' %>
           </a>
-        </li>
-        <li class="nav-item">
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <% if user_signed_in? %>
           <a class="nav-link" href="#">
-            <i class="far fa-bell fa-1x"></i>
-            Notifications
+            <div class="btn4" >
+              @<%= current_user.username %>
+            </div>  
           </a>
-        </li>
-        <li class="nav-item">
+        <% end %>
+      </li>      
+      <li class="nav-item">
+        <% if user_signed_in? %>
           <a class="nav-link" href="#">
-            <i class="far fa-envelope"></i>
-            Messages
+            <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn3' %>
           </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="far fa-bookmark"></i>
-            Saved
-          </a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="far fa-list-alt"></i>
-            Lists
-          </a>
-        </li>
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <a class="nav-link" href="/tweets">
-              <i class="fas fa-user"></i>
-              Profile
-            </a>
-          <% else %>
-            <%= link_to 'Sign In', new_user_session_path, class: "btn3" %>
-          <% end %>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">
-            <i class="fas fa-ellipsis-h"></i>
-            More Options
-          </a>
-        </li>
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <a class="nav-link" href="#">
-              <%= link_to 'Tweet', new_tweet_path, class: 'btn3' %>
-            </a>
-          <% end %>
-        </li>
-        
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <a class="nav-link" href="#">
-              <div class="btn4" >
-                @<%= current_user.username %>
-              </div>  
-            </a>
-          <% end %>
-        </li>      
-        <li class="nav-item">
-          <% if user_signed_in? %>
-            <a class="nav-link" href="#">
-              <%= link_to 'Log Out', destroy_user_session_path, method: :delete, class: 'btn3' %>
-            </a>
-          <% end %>  
-        </li>
-	        	         	  
-      </ul>
-    </div>
-  </nav>
-</div>
-    
+        <% end %>  
+      </li>     
+    </ul>
+  </div>
+</nav>

@@ -3,19 +3,19 @@
     <div class="col">
       <%= render 'layouts/navigation' %>
     </div>
-    <div class="col">
+    <div class="col-7">
       <% if user_signed_in? %>
-        <%= render 'profile' %>
+        <%= render partial: 'profile', locals: {user: @user} %>
         <%= render 'feed' %>
       <% else %>
         <%= render 'feed' %>
-    
       <% end %>      
+      <div class="pagination justify-content-center">
+        <%= will_paginate @tweets %>
+      </div>
     </div>
-    <div class="col">
+    <div class="col-3">
       <%= render 'who-to-follow' %>
     </div>
   </div>
 </div>
-
-<%= will_paginate @tweets %>
