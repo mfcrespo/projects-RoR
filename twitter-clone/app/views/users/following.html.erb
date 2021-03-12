@@ -1,14 +1,23 @@
-Following
-<%if user_signed_in? %>
-  <div>
-  <h1> You are following to </h1>
-  <% if @following.nil? %>
-    <% current_user.following.each do |followed| %>
-      <%= followed.name %>
-      <%= followed.username %>  
-    <% end %>
-  <% else %>
-      <h1 class="display-4 text-center"> You have anybody follow yet </h1>
-  <% end %>
+<div class="card">
+  <div class="card-header">
+    Following
   </div>
-<% end %>
+  <ul class="list-group list-group-flush">
+    <%if user_signed_in? %>
+      <div>
+      <h1> You are following to </h1>
+      <% if @following.nil? %>
+        <% current_user.following.each do |followed| %>
+          <strong class="card-title"><%= followed.name %></strong>
+          <small class="card-subtitle text-muted">
+            <%= followed.username %>
+            <%= render partial: "tweets/follow-button", locals: {user: followed} %>
+          </small>
+        <% end %>
+      <% else %>
+          <h1 class="display-4 text-center"> You haven´t anybody follow yet </h1>
+      <% end %>
+      </div>
+    <% end %>
+  </ul>
+</div>
