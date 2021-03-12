@@ -14,25 +14,35 @@
 						<strong><%= current_user.name %></strong><br />
 						<small><%= current_user.username %></small>
 					</p>
-          <div class="panel-block">
-            <div class="level is-mobile">
-              <div class="level-item has-centered-text">
-                <div>
-                  <p class="heading">Tweets</p>
-                  <p class="title is-6"><%= current_user.tweets.count %></p>
-                </div>
-              </div>
-              <div class="level-item has-centered-text">
-                <div>
-                  <p class="heading">Following</p>
-                  <p class="title is-6">123</p>
-                </div>
-              </div>
-              <div class="level-item has-centered-text">
-                <div>
-                  <p class="heading">Followers</p>
-                  <p class="title is-6">465K</p>
-                </div>
+          <p>
+            <a class="nav-link" href="#">
+            <%= link_to 'Tweet', new_tweet_path, class: 'btn3' %>
+            </a>  
+					</p>
+        </p>  
+        <div class="panel-block">
+          <div class="level is-mobile">
+            <div class="level-item has-centered-text">
+              <div>
+                <p class="heading">Tweets</p>
+                <p class="title is-6"><%= current_user.tweets.count %></p>
               </div>
             </div>
-          </div>  
+            <div class="level-item has-centered-text">
+              <div>
+                <p class="heading">Followers</p>
+                <p class="title is-6"><%= current_user.followers.count %></p>
+              </div>
+            </div>
+            <div class="level-item has-centered-text">
+              <div>
+                <p class="heading">Following</p>
+                <p class="title is-6">465K</p>
+              </div>
+            </div>
+          </div>
+        </div>  
+      </div>
+    </div>
+  </nav>
+</div>      

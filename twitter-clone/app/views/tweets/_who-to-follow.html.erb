@@ -1,1 +1,25 @@
 who to follow
+<% @users.each do |user| %>
+  <% if user.id != current_user.id %>
+    <div class="card w-50">
+      <div class="card-body">
+        <p class="card-text">
+          <figure class="image is-64x64">
+            <%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
+          </figure>
+          <p>
+            <strong><%= user.name %></strong><br />
+            <small><%= user.username %></small>
+          </p>
+          <p>
+            <%= render 'follow-button', :user => User.find_by_username(params[:id]) %>
+
+          </p>
+        </p>  
+
+      </div>
+      </div>
+    </nav>
+  </div>      
+  <% end %>
+<% end %>
