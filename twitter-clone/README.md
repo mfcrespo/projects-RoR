@@ -1,4 +1,4 @@
-![](https://www.google.com/imgres?imgurl=https%3A%2F%2Fwww.trecebits.com%2Fwp-content%2Fuploads%2F2020%2F05%2Ftwitter-programar.jpg&imgrefurl=https%3A%2F%2Fwww.trecebits.com%2F2020%2F11%2F23%2Fun-fallo-en-twitter-permite-ver-los-fleets-pasadas-las-24-horas-de-su-publicacion%2F&tbnid=lkkuHcmflPzkNM&vet=12ahUKEwjp9fOn0avvAhXDi4QIHVhzAO4QMygRegUIARD0AQ..i&docid=66ZU9LRwkYibqM&w=800&h=445&q=twitter&ved=2ahUKEwjp9fOn0avvAhXDi4QIHVhzAO4QMygRegUIARD0AQ)
+!https://www.muycomputer.com/wp-content/uploads/2020/05/twitter.jpg
 
 # Twitter Clone
 
@@ -17,7 +17,9 @@ Twitter clone is a based-rails app that allows you send post and follows people.
 
 | **Action** | **Description** |
 |---|---|
-| Sign-in  | You can sign in with the username or E-mail  |
+| Sign In  | You can sign in with the username or E-mail  |
+| Sign Up  | You can sign up to create a new account  |
+| Features  | Once you are signed in you can create a new tweet, see your tweets in your home page or see the tweets from all who you are following in the main page, check who you are following or who is following you.  |
 
 #### Follow me 💬
 
@@ -28,7 +30,7 @@ Twitter clone is a based-rails app that allows you send post and follows people.
 ### License
 *`Twitter Clone ` is open source and therefore free to download and use without permission.*
 
-<a href="url"><img src="https://www.holbertonschool.com/holberton-logo.png" align="middle" width="100" height="30"></a>
+<a href="url"><img src="https://www.python.org.co/usuarios/koombea/koombea-horizontal.png" align="middle" width="100" height="30"></a>
 
 ##### Koombea
 ##### March, 2021. Cali, Colombia
