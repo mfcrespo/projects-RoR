@@ -1,8 +1,16 @@
-!https://www.muycomputer.com/wp-content/uploads/2020/05/twitter.jpg
+![](https://www.muycomputer.com/wp-content/uploads/2020/05/twitter.jpg)
 
 # Twitter Clone
 
 Twitter clone is a based-rails app that allows you send post and follows people.
+
+## To run this project you have to run:
+* git clone <repo>
+* cd twitter-clone
+* bundle install
+* rails db:create
+* rails db:migrate
+* and run server: rails s
 
 ## Requirements
 
