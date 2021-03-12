@@ -1,23 +1,23 @@
-who to follow
-<% @users.each do |user| %>
-  <% if current_user.id != user.id %>
-    <div class="card w-50">
-      <div class="card-body">
-        <p class="card-text">
-          <figure class="image is-64x64">
-            <%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
-          </figure>
-          <p>
-            <strong><%= user.name %></strong><br />
-            <small><%= user.username %></small>
-          </p>
-          <p>
-            <%= render 'follow-button', user: user %>
-          </p>
-        </p>  
-      </div>
-      </div>
-    </nav>
-  </div>      
-  <% end %>
-<% end %>
+<div class="card">
+  <div class="card-header">
+    who to follow
+  </div>
+  <ul class="list-group list-group-flush">
+    <% @users.each do |user| %>
+      <% if current_user.id != user.id %>
+        <li class="list-group-item">
+          <div class="card-body pe-1 ps-1 pb-1 pt-1">
+              <figure class="image is-64x64">
+                <%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
+              </figure>
+              <strong class="card-title"><%= user.name %></strong>
+              <small class="card-subtitle text-muted">
+                @<%= user.username %>
+              <%= render 'follow-button', user: user %>
+              </small>
+            </div>
+        </li>
+      <% end %>
+    <% end %>
+  </ul>
+</div>

@@ -1,50 +1,10 @@
-<div class="column is-one-quarter">
-	<nav class="panel">
-		<p class="panel-heading">
-      <strong><%= user.name %></strong><br />
-			<small><%= user.username %></small>
-    </p>
-		<div class="card w-50">
-      <div class="card-body">
-        <p class="card-text">
-					<figure class="image is-64x64">
-						<%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
-					</figure>
-          <p>
-						<strong><%= user.name %></strong><br />
-						<small><%= user.username %></small>
-					</p>
-          <p>
-            <a class="nav-link" href="#">
-            <%= link_to 'Tweet', new_tweet_path, class: 'btn3' %>
-            </a>  
-					</p>
-        </p>  
-        <div class="panel-block">
-          <div class="level is-mobile">
-            <div class="level-item has-centered-text">
-              <div>
-                <p class="heading">Tweets</p>
-                <p class="title is-6"><%= user.tweets.count %></p>
-              </div>
-            </div>
-            <div class="level-item has-centered-text">
-              <div>
-                <a>
-                <p class="heading">Followers</p></a>
-                <p class="title is-6"><%= user.followers.count %></p>
-                  <%= link_to 'follow', followers_user_path(user), class: "btn3" %>
-              </div>
-            </div>
-            <div class="level-item has-centered-text">
-              <div>
-                <p class="heading">Following</p>
-                <p class="title is-6"><%= user.following.count %></p>
-              </div>
-            </div>
-          </div>
-        </div>  
-      </div>
-    </div>
-  </nav>
-</div>      
+<div class="card">
+	<div class="card-body">
+    <%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
+		<h5 class="card-title"><%= user.name %></h5>
+    <small class="text-muted">@<%= user.username %> |</small>
+    <small class="card-text text-muted"><%= user.tweets.count %> Tweets | <%= user.following.count %> Following | <%= user.followers.count %> Followers | </small>
+    <%= link_to 'Followers', followers_user_path(user), class: "btn5" %>
+    <%= link_to 'following', following_user_path(user), class: "btn5" %>
+  </div>
+</div>

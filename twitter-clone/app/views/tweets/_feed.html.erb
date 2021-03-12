@@ -1,30 +1,29 @@
 
 <h5>Home</h5>
 
-
-
 <% @tweets.each do |tweet| %>
-  <div class="card w-50">
-    <div class="card-body">
-      <p class="card-text">
-        <strong><%= tweet.user.name %></strong>, 
-        <small>@<%= tweet.user.username %> · <%= tweet.created_at.getlocal.strftime(("%d %b %y %H : %M")) %></small> <br/>
-        <p><%= tweet.tweet %></p>
-      </p>
-    </div>  
+      <div class="card">
+        <div class="card-body">
+          <p class="card-text">
+            <strong><%= tweet.user.name %></strong>, 
+            <small>@<%= tweet.user.username %></small> ·
+            <small><%= tweet.created_at.getlocal.strftime("%d %b. %Y %I:%M %P") %></small><br/>
+            <p><%= tweet.tweet %></p>
+          </p>
+          <% if user_signed_in? && current_user.id == tweet.user_id %>
+            <nav class="level">
+              <div class="level-left is-mobile">
+                <%= link_to tweet, class: "level-item" do %>
+                  <span class="icon">See tweet<i class="fa fa-link" aria-hidden="true"></i></span>
+                <% end %>
+                <%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweeet?" } do %>
+                  <span class="icon">Delete<i class="fa fa-trash-o" aria-hidden="true"></i></span>
+                <% end %>
+              </div>
+            </nav>
+          <% end %>
+        </div>
+      </div>
+    <% end %>
   </div>
-
-  <% if user_signed_in? && current_user.id == tweet.user_id %>
-  	<nav class="level">
-  		<div class="level-left is-mobile">
-  			<%= link_to tweet, class: "level-item" do %>
-  				<span class="icon"><i class="fa fa-link" aria-hidden="true"></i></span>
-  			<% end %>
-        <%= link_to tweet, method: :delete, data: { confirm: "Are you sure you want to delete this tweet?" } do %>
-          <span class="icon"><i class="fa fa-trash-o" aria-hidden="true"></i></span>
-        <% end %>
-  				</div>
-  			</nav>
-  <% end %>  
-
-<% end %>
+</div>

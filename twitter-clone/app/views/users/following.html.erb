@@ -1,0 +1,14 @@
+Following
+<%if user_signed_in? %>
+  <div>
+  <h1> You are following to </h1>
+  <% if @following.nil? %>
+    <% current_user.following.each do |followed| %>
+      <%= followed.name %>
+      <%= followed.username %>  
+    <% end %>
+  <% else %>
+      <h1 class="display-4 text-center"> You have anybody follow yet </h1>
+  <% end %>
+  </div>
+<% end %>
