@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_03_11_200537) do
+ActiveRecord::Schema.define(version: 2021_03_12_025912) do
 
   create_table "relationships", force: :cascade do |t|
     t.integer "follower_id"
@@ -18,8 +18,8 @@ ActiveRecord::Schema.define(version: 2021_03_11_200537) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["followed_id"], name: "index_relationships_on_followed_id"
+    t.index ["follower_id", "followed_id"], name: "index_relationships_on_follower_id_and_followed_id", unique: true
     t.index ["follower_id"], name: "index_relationships_on_follower_id"
-    t.index ["follower_id"], name: "index_relationships_on_follower_id_and_follower_id", unique: true
   end
 
   create_table "tweets", force: :cascade do |t|
