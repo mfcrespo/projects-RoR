@@ -11,5 +11,5 @@ class UsersController < ApplicationController
   def following
     @users = User.all
   end  
-  
-end
+
+end  

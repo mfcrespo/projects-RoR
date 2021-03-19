@@ -10,7 +10,7 @@
         <% current_user.following.each do |followed| %>
           <strong class="card-title"><%= followed.name %></strong>
           <small class="card-subtitle text-muted">
-            <%= followed.username %>
+            (@<%= followed.username %>)
             <%= render partial: "tweets/follow-button", locals: {user: followed} %>
           </small>
         <% end %>
