@@ -1,0 +1,13 @@
+<div class="card">
+	<div class="card-body">
+    <%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
+		<h5 class="card-title"><%= current_user.name %></h5>
+    <small class="text-muted">@<%= current_user.username %> |</small>
+    <div>
+      <small class="card-text text-muted"><%= pluralize(current_user.tweets.count, "Tweet") %> | 
+      <%= render 'shared/stats' %> </small>
+    </div>
+    
+  </div>
+</div>
+

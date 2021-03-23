@@ -6,9 +6,9 @@ before_action :authenticate_user!, except: [:index]
 	end
 	    
 	def index
-		@tweets = Tweet.all.order('created_at DESC').paginate({page: params[:page], per_page: 10})
+		@tweets = Tweet.all.paginate({page: params[:page], per_page: 10})
     @tweet = Tweet.new
-    @users = User.all
+    @users = User.all.paginate({page: params[:page], per_page: 10})
     @user = current_user
 	end
 	    

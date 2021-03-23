@@ -1,2 +1,23 @@
-
-<%= render partial: 'tweets/profile', locals: {user: @user} %>
+<div class="row">
+  <aside class="col-md-4">
+    <section>
+      <h1>
+        (gravataraa)
+        <%= @user.name %>
+      </h1>
+    </section>
+    <section class="stats">
+      <%= render 'shared/stats' %>
+    </section>
+  </aside>
+  <div class="col-md-8">
+    <%= render 'follow_form' if user_signed_in? %>
+    <% if @user.tweets.any? %>
+      <h3>Tweets (<%= @user.tweets.count %>)</h3>
+      <ol class="microposts">
+        <%= render 'tweets/feed' %>
+      </ol>
+      <%= will_paginate @tweets %>
+    <% end %>
+  </div>
+</div>

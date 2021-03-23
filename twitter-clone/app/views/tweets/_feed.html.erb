@@ -1,14 +1,17 @@
-
-<h5>Home</h5>
-
 <% @tweets.each do |tweet| %>
       <div class="card">
         <div class="card-body">
           <p class="card-text">
+            <figure class="image is-64x64">
+              <%= gravatar_image_tag(@user.email, size: 64, alt: @user.name) %>
+            </figure>
             <strong><%= tweet.user.name %></strong>, 
             <small>@<%= tweet.user.username %></small> ·
             <small><%= tweet.created_at.getlocal.strftime("%d %b. %Y %I:%M %P") %></small><br/>
             <p><%= tweet.tweet %></p>
+            <small>
+              Posted <%= time_ago_in_words(tweet.created_at) %> ago.
+            </small>
           </p>
           <% if user_signed_in? && current_user.id == tweet.user_id %>
             <nav class="level">

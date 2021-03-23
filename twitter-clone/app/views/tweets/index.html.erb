@@ -4,11 +4,11 @@
       <%= render 'layouts/navigation' %>
     </div>
     <div class="col-3">
-      <%= render partial: 'who-to-follow' %>
+      <%= render 'users/who-to-follow' %>
     </div>    
     <div class="col-7">
       <% if user_signed_in? %>
-        <%= render partial: 'profile', locals: {user: @user} %>
+        <%= render partial: 'shared/profile', locals: {user: @user} %>
         <%= render partial: 'feed' %>
       <% else %>
         <%= render partial: 'feed' %>
