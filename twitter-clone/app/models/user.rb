@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   has_many :tweets, dependent: :destroy
   default_scope -> { order(name: :ASC) }
+  
   has_many :active_relationships, class_name: "Relationship", foreign_key: "follower_id", dependent: :destroy
   has_many :passive_relationships, class_name: "Relationship", foreign_key: "followed_id", dependent: :destroy
   
@@ -26,7 +27,7 @@ class User < ApplicationRecord
   def following?(other)
     following.include?(other)
   end
-       
+      
   validates :username, presence: true, uniqueness: true
   validates :name, presence: true
   validates :email, presence: true, 

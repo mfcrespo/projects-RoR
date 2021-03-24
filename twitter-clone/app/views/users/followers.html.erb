@@ -1,23 +1,37 @@
-<div class="card">
-  <div class="card-header">
-    Followers
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <%= render 'layouts/navigation' %>
+    </div>
+    <div class="col-7">
+      <div class="card">
+        <div class="card-header">
+          Followers
+        </div>
+        <ul class="list-group list-group-flush">
+          <%if user_signed_in? %>
+            <div>
+            <h1> You are followed by </h1>
+            <% if @followers.nil? %>
+              <% @user.followers.each do |follower| %>
+                <strong class="card-title"><%= follower.name %></strong>
+                <small class="card-subtitle text-muted">
+                  (<%= link_to '@' + follower.username, user_path(follower.id) %>)
+                  <%= render partial: "tweets/follow-button", locals: {user: follower} %>
+                </small>
+              <% end %>
+            <% else %>
+                <h1 class="display-4 text-center"> Nobody has you follow yet </h1>
+            <% end %>
+            </div>
+            <div class="pagination justify-content-center">
+              <%= will_paginate @users %>
+            </div>
+          <% end %>
+        </ul>
+      </div>    
+    </div>
   </div>
-  <ul class="list-group list-group-flush">
-    <%if user_signed_in? %>
-      <div>
-      <h1> You are followed by </h1>
-      <% if @followers.nil? %>
-        <% current_user.followers.each do |follower| %>
-          <strong class="card-title"><%= follower.name %></strong>
-          <small class="card-subtitle text-muted">
-            (@<%= follower.username %>)
-            <%= render partial: "tweets/follow-button", locals: {user: follower} %>
-          </small>
-        <% end %>
-      <% else %>
-          <h1 class="display-4 text-center"> Nobody has you follow yet </h1>
-      <% end %>
-      </div>
-    <% end %>
-  </ul>
-</div>
+</div>    
+
+
