@@ -17,8 +17,14 @@
                 <strong class="card-title"><%= followed.name %></strong>
                 <small class="card-subtitle text-muted">
                   (<%= link_to '@' + followed.username, user_path(followed.id) %>)
-                  <%= render partial: "tweets/follow-button", locals: {user: followed} %>
                 </small>
+                <div>
+                  <% if followed != current_user %>
+                    <% if current_user.following.include? followed %>
+                      <%= render partial: "tweets/follow-button", locals: {user: followed} %>
+                    <% end %>
+                  <% end %>
+                </div>                
               <% end %>
             <% else %>
                 <h1 class="display-4 text-center"> You haven´t anybody follow yet </h1>
