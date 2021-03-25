@@ -1,12 +1,17 @@
 class Employee < ApplicationRecord
   before_save :sanitize_text
-  enum departments: { accounting: "Accounting", finance: "Finance", operations: "Operations", security: "Security", human_resources: "Human Resources" }, _prefix: :department
   
-  def self.to_csv(fields = column_names, options = {})
-    CSV.generate(options) do |csv|
+  enum departments: { accounting: "Accounting", finance: "Finance", 
+                      operations: "Operations", security: "Security", 
+                      human_resources: "Human Resources" },
+                      _prefix: :department
+  
+  def self.export
+    fields = %w{id name lastname email phone position salary department}
+    CSV.generate(headers: true) do |csv|
       csv << fields
       all.each do |employee|
-        csv << employee.attributes.values_at(*fields)
+        csv << fields.map{ |prop| employee.send(prop) }
       end
     end
   end
@@ -14,8 +19,14 @@ class Employee < ApplicationRecord
   def self.import(file)
     CSV.foreach(file.path, headers: true) do |row|
       employee_hash = row.to_hash
-      employee = find_or_create_by!(name: employee_hash['name'], lastname: employee_hash['lastname'], phone: employee_hash['phone'], email: employee_hash['email'], position: employee_hash['position'], salary: employee_hash['salary'], department: employee_hash['department'])
-      employee.update_attributes(employee_hash)
+      employee = find_or_create_by!(name: employee_hash['name'], 
+                                    lastname: employee_hash['lastname'], 
+                                    phone: employee_hash['phone'], 
+                                    email: employee_hash['email'], 
+                                    position: employee_hash['position'], 
+                                    salary: employee_hash['salary'], 
+                                    department: employee_hash['department'])
+      employee.update(employee_hash)
     end
   end  
 
