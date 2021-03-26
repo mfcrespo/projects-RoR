@@ -1,25 +1,9 @@
-<div class="card">
-  <div class="card-header">
-    Who to follow
+<%= form_tag user_path, method: :get do %>
+  <div class="form-group">
+    <%= text_field_tag :username, params[:username], class: "form-control", placeholder: "Username" %>
   </div>
-  <ul class="list-group list-group-flush">
-    <% @users.each do |user| %>
-      <% if current_user.id != user.id%>
-        <% if !current_user.following?(@user) %>
-          <li class="list-group-item">
-            <div class="card-body pe-1 ps-1 pb-1 pt-1">
-                <figure class="image is-64x64">
-                  <%= gravatar_image_tag(user.email, size: 64, alt: user.name) %>
-                </figure>
-                <strong class="card-title"><%= user.name %></strong>
-                <small class="card-subtitle text-muted">
-                  @<%= user.username %>
-                <%= render 'follow-button', user: user %>
-                </small>
-              </div>
-          </li>
-        <% end %>  
-      <% end %>
-    <% end %>
-  </ul>
-</div>
+  <div class="form-group">
+    <%= select_tag :username, options_from_collection_for_select(User.all, "username", params[:username]), prompt: "Username", class: "form-control" %>
+  </div>
+  <%= submit_tag "Search", name: nil, class: "btn btn-primary btn-md" %>
+<% end %>
