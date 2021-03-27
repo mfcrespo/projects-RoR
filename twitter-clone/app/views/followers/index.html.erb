@@ -16,7 +16,7 @@
               <% @user.followers.each do |follower| %>
                 <strong class="card-title"><%= follower.name %></strong>
                 <small class="card-subtitle text-muted">
-                  (<%= link_to '@' + follower.username, user_path(follower.id) %>)
+                  (<%= link_to '@' + follower.username, user_path(follower.username) %>)
                 </small>
                 <div>
                   <% if follower != current_user %>
@@ -31,7 +31,7 @@
             <% end %>
             </div>
             <div class="pagination justify-content-center">
-              <%= will_paginate @users %>
+              
             </div>
           <% end %>
         </ul>

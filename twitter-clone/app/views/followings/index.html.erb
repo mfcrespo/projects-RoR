@@ -16,7 +16,7 @@
               <% @user.following.each do |followed| %>
                 <strong class="card-title"><%= followed.name %></strong>
                 <small class="card-subtitle text-muted">
-                  (<%= link_to '@' + followed.username, user_path(followed.id) %>)
+                  (<%= link_to '@' + followed.username, user_path(followed.username) %>)
                 </small>
                 <div>
                   <% if followed != current_user %>
@@ -31,7 +31,7 @@
             <% end %>
             </div>
             <div class="pagination justify-content-center">
-              <%= will_paginate @users %>
+              paginacion
             </div>
           <% end %>
         </ul>
@@ -41,9 +41,9 @@
       <div class="card">
         <div class="card-header">
           Who do you want follow?
-          <%= render 'who_to_follow_button' %>
+          <%= render 'users/who_to_follow_button' %>
         </div>
       </div>    
     </div>  
   </div>
-</div>    
+</div> 
