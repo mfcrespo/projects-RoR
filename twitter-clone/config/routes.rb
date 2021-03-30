@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   devise_for :users
+  root 'home#index'
   resources :tweets
+  get 'search', to: 'users#search'
+  post 'search', to: 'users#search'
   get '/:username', to: 'users#show', as: 'user'
 
   scope ':username' do
@@ -9,6 +12,6 @@ Rails.application.routes.draw do
   end
 
   resources :relationships, only: [:create, :destroy]
-  root 'home#index'
+  
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

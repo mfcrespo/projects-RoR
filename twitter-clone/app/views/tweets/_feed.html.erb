@@ -8,7 +8,7 @@
             <%= gravatar_image_tag(@user.email, size: 64, alt: @user.name) %>
           </figure>
           <strong><%= tweet.user.name %></strong>, 
-          <small>(<%= link_to '@' + tweet.user.username, user_path(tweet.user.id) %>)</small> ·
+          <small>(<%= link_to '@' + tweet.user.username, user_path(tweet.user.username) %>)</small> ·
           <small><%= tweet.created_at.getlocal.strftime("%d %b. %Y %I:%M %P") %></small><br/>
           <p><%= tweet.tweet %></p>
           <small>

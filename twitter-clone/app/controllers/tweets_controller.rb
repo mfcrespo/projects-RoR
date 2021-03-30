@@ -1,5 +1,5 @@
 class TweetsController < ApplicationController
-before_action :authenticate_user!, except: [:index]
+before_action :authenticate_user!, except: [:index, :show]
 
 	def show
 		@tweet = Tweet.find(params[:id])
@@ -7,9 +7,9 @@ before_action :authenticate_user!, except: [:index]
 	    
 	def index
 		if user_signed_in?
-      @tweets = Tweet.where(user_id: current_user.following).or(Tweet.where(user_id: current_user)).paginate(page: params[:page], per_page: 10)
+      @tweets = Tweet.where(user_id: current_user.following).or(current_user.tweets).paginate(page: params[:page], per_page: 10)
     else
-      @tweets = Tweet.all.paginate(page: params[:page], per_page: 10)
+      @tweets = @user.tweets.paginate(page: params[:page], per_page: 10)
     end
     @tweet = Tweet.new
     @users = User.all
@@ -28,7 +28,7 @@ before_action :authenticate_user!, except: [:index]
 		@tweet = current_user.tweets.build(tweet_params)
 		if @tweet.save
 		  flash[:success] = "Tweet successfully created"
-		  redirect_to tweets_path
+		  redirect_to tweets_path(@tweet)
 		else
 		  flash[:error] = "Something went wrong"
 		  render 'new'
@@ -48,11 +48,11 @@ before_action :authenticate_user!, except: [:index]
 	def destroy
 		@tweet = Tweet.find(params[:id])
 		if @tweet.destroy
-		  flash[:success] = 'Object was successfully deleted.'
-		  redirect_to tweets_url
+		  flash[:success] = 'Tweet was successfully deleted.'
+		  redirect_to tweets_path
 		else
 		  flash[:error] = 'Something went wrong'
-		  redirect_to tweets_url
+		  redirect_to tweets_path
 		end
 	end
 	      

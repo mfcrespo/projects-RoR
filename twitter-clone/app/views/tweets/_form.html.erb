@@ -14,6 +14,7 @@
     <%= f.text_area :tweet, class: "form-control", placeholder: "What's happening..." %>
   </div>
   <div class="mb-3">
-    <%= f.submit 'Tweet' %>
+    <%= f.submit 'Tweet', class: 'btn5' %>
+    <%= link_to 'Back Home', tweets_path, class: 'btn3' %>
   </div>
 <% end %>

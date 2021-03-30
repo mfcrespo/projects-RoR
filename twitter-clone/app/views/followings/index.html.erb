@@ -31,7 +31,7 @@
             <% end %>
             </div>
             <div class="pagination justify-content-center">
-              paginacion
+              <%= will_paginate @following_users %>
             </div>
           <% end %>
         </ul>
@@ -41,7 +41,7 @@
       <div class="card">
         <div class="card-header">
           Who do you want follow?
-          <%= render 'users/who_to_follow_button' %>
+          <%= link_to 'Follow Another user', search_path %>
         </div>
       </div>    
     </div>  
