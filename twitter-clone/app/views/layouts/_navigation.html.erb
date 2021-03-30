@@ -53,7 +53,7 @@
       </li>      
       <li>
         <% if user_signed_in? %> 
-          <%= link_to "Profile", @user.username, class: 'btn5 fas fa-user' %>
+          <%= link_to "Profile", user_path(current_user.username), class: 'btn5 fas fa-user' %>
         <% else %>
           <%= link_to 'Sign In', new_user_session_path, class: "btn3" %>
         <% end %>
