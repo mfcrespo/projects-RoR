@@ -1,6 +1,6 @@
 # FINANCE-TRACKER APP
 
-![](https://www.github.com/mfcrespo/projects-RoR/finance-tracker/app/assets/images/finance_tracker.png)
+![](https://github.com/mfcrespo/projects-RoR/blob/main/finance-tracker/app/assets/images/finance_tracker.png)
 
 This is a finance tracker app built in Ruby on Rails 6.1.
 
