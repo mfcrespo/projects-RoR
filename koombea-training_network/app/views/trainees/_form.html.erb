@@ -1,0 +1,30 @@
+<%= simple_form_for(@trainee) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :firstname %>
+  </div>
+
+  <h3>Social Media</h3>
+
+  <table class='table'>
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task name</th>
+        <th>Completed</th>
+      </tr>
+    </thead>
+    <tbody class='networks'>
+      <%= f.simple_fields_for :networks do |builder| %>
+        <%= render 'network_fields', f: builder%>
+      <% end %>  
+    </tbody>
+  
+  </table>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+    <%= link_to_add_association 'Add Social Media', f, :networks, class: 'btn btn-primary', data: { association_insertion_node: '.networks', association_insertion_method: :append } %>
+  </div>
+<% end %>    

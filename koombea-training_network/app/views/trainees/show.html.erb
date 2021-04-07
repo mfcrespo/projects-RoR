@@ -1,0 +1,22 @@
+<h1>Showing trainees details</h1>
+<p><strong>Firstname</strong><%= @trainee.firstname %></p>
+<p><strong>Lastname</strong><%= @trainee.lastname %></p>
+<p><strong>City</strong><%= @trainee.city %></p>
+<p><strong>Country</strong><%= @trainee.country %></p>
+<p><strong>Phone</strong><%= @trainee.phone %></p>
+<p><strong>About</strong><%= @trainee.bio %></p>
+<p><strong>Preference</strong><%= @trainee.preference %></p>
+<p><strong>E-mail</strong><%= @trainee.email %></p>
+
+<h3>Social Media</h3>
+<ul>
+  <% for @network in @trainee.networks %>
+    <li><%= @network.socialname %></li>
+  <% end %>
+</ul>
+
+<p>
+  <%= link_to 'Edit', edit_trainee_path(@trainee) %> |
+  <%= link_to 'Delete', trainee_path(@trainee), method: :delete, data: { confirm: "Are you sure?" } %> |
+  <%= link_to 'Back to List', trainees_path %>
+</p>
